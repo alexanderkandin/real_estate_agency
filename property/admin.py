@@ -8,6 +8,7 @@ class FlatAdmin(admin.ModelAdmin):
     list_editable = ('new_building',)
     readonly_fields = ('created_at',)
     list_filter = ('new_building','rooms_number','has_balcony')
+    raw_id_fields = ('likes',)
 
 
 class ComplaintsAdmin(admin.ModelAdmin):
