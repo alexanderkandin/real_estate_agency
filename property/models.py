@@ -11,9 +11,19 @@ class Complaints(models.Model):
     complaints = models.TextField(verbose_name='Жалоба')
 
 
-class Flat(models.Model):
-    owner = models.CharField('ФИО владельца', max_length=200)
+class Owner(models.Model):
+    name = models.CharField('ФИО владельца', max_length=200)
+    owners_phonenumber = models.CharField('Номер владельца', max_length=20)
     owner_pure_phone = PhoneNumberField(verbose_name="Нормализованный номер владельца", blank=True, null=True)
+    flat = models.ManyToManyField('Flat',related_name='owners', verbose_name='Квартиры в собственности')
+
+
+class Flat(models.Model):
+    owner_deprecated = models.CharField('ФИО владельца', max_length=200)
+    owner_pure_phone = PhoneNumberField(
+        verbose_name="Нормализованный номер владельца",
+        blank=True,
+        null=True)
     owners_phonenumber = models.CharField('Номер владельца', max_length=20)
     new_building = models.BooleanField(null=True)
     created_at = models.DateTimeField(
