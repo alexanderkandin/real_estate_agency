@@ -17,6 +17,8 @@ class Owner(models.Model):
     owner_pure_phone = PhoneNumberField(verbose_name="Нормализованный номер владельца", blank=True, null=True)
     flat = models.ManyToManyField('Flat',related_name='owners', verbose_name='Квартиры в собственности')
 
+    def __str__(self):
+        return f'{self.name}'
 
 class Flat(models.Model):
     owner_deprecated = models.CharField('ФИО владельца', max_length=200)
