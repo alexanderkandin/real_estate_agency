@@ -21,12 +21,6 @@ class Owner(models.Model):
         return f'{self.name}'
 
 class Flat(models.Model):
-    owner_deprecated = models.CharField('ФИО владельца', max_length=200)
-    owner_pure_phone = PhoneNumberField(
-        verbose_name="Нормализованный номер владельца",
-        blank=True,
-        null=True)
-    owners_phonenumber = models.CharField('Номер владельца', max_length=20)
     new_building = models.BooleanField(null=True)
     created_at = models.DateTimeField(
         'Когда создано объявление',
