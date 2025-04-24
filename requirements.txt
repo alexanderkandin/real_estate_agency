@@ -1,3 +1,14 @@
-Django==2.2.24
-environs==5.2.1
+asgiref==3.8.1
+babel==2.17.0
 dj-database-url==0.5.0
+Django==2.2.24
+django-phonenumber-field==4.0.0
+environs==5.2.1
+marshmallow==3.26.1
+packaging==24.2
+phonenumbers==9.0.2
+python-dotenv==1.1.0
+pytz==2025.2
+setuptools==78.1.0
+sqlparse==0.5.3
+tzdata==2025.2
