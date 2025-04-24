@@ -5,7 +5,7 @@ import phonenumbers
 
 def edit_numbers(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for number in Flat.objects.all():
+    for number in Flat.objects.iterator():
         phone = number.owners_phonenumber
         if phone and phone.strip():
             try:

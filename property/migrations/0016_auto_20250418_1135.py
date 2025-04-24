@@ -6,7 +6,7 @@ from django.db import migrations
 def transfer_to_owner(apps, schema_editor):
     Flats = apps.get_model('property','Flat')
     Owner = apps.get_model('property', 'Owner')
-    for flat in Flats.objects.all():
+    for flat in Flats.objects.iterator():
         name = flat.owner_deprecated
         owners_phonenumber = flat.owners_phonenumber
         owner_pure_phone = flat.owner_pure_phone
