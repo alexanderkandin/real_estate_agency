@@ -6,15 +6,14 @@ from django.contrib.auth.models import User
 from phonenumber_field.modelfields import PhoneNumberField
 
 class Complaints(models.Model):
-    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,verbose_name="Кто пожаловался")
-    flat = models.ForeignKey('Flat', on_delete=models.CASCADE, verbose_name='Квартира, на которую пожаловались')
+    user = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, blank=True,related_name='complaints', verbose_name="Кто пожаловался")
+    flat = models.ForeignKey('Flat', on_delete=models.CASCADE, related_name='complaints', verbose_name='Квартира, на которую пожаловались')
     complaints = models.TextField(verbose_name='Жалоба')
 
 
 class Owner(models.Model):
     name = models.CharField('ФИО владельца', max_length=200)
-    owners_phonenumber = models.CharField('Номер владельца', max_length=20)
-    owner_pure_phone = PhoneNumberField(verbose_name="Нормализованный номер владельца", blank=True, null=True)
+    owner_pure_phone = PhoneNumberField(verbose_name="Номер владельца", blank=True, null=True)
     flat = models.ManyToManyField('Flat',related_name='owners', verbose_name='Квартиры в собственности')
 
     def __str__(self):
