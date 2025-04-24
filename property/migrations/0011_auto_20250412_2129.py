@@ -5,7 +5,7 @@ from django.db import migrations
 
 def edit_numbers(apps, schema_editor):
     Flat = apps.get_model('property', 'Flat')
-    for number in Flat.objects.all():
+    for number in Flat.objects.iterator():
         phone = number.owners_phonenumber
         number.owner_pure_phone = phone
         number.save()
