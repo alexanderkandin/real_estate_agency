@@ -1,9 +1,5 @@
-asgiref==3.8.1
 dj-database-url==0.5.0
 Django==2.2.24
 django-phonenumber-field==4.0.0
 environs==5.2.1
 phonenumbers==9.0.2
-pytz==2025.2
-sqlparse==0.5.3
-tzdata==2025.2
